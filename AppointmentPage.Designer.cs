@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCatSearch = new System.Windows.Forms.Button();
+            this.btnExpense = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtPurpose = new System.Windows.Forms.TextBox();
@@ -38,18 +38,19 @@
             this.lblLocation = new System.Windows.Forms.Label();
             this.lbInviteeName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnIncome = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnCatSearch
+            // btnExpense
             // 
-            this.btnCatSearch.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.btnCatSearch.Location = new System.Drawing.Point(523, 143);
-            this.btnCatSearch.Name = "btnCatSearch";
-            this.btnCatSearch.Size = new System.Drawing.Size(146, 50);
-            this.btnCatSearch.TabIndex = 23;
-            this.btnCatSearch.Text = "Create Expense";
-            this.btnCatSearch.UseVisualStyleBackColor = false;
-            this.btnCatSearch.Click += new System.EventHandler(this.btnCatSearch_Click);
+            this.btnExpense.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btnExpense.Location = new System.Drawing.Point(524, 95);
+            this.btnExpense.Name = "btnExpense";
+            this.btnExpense.Size = new System.Drawing.Size(146, 50);
+            this.btnExpense.TabIndex = 23;
+            this.btnExpense.Text = "Create Expense";
+            this.btnExpense.UseVisualStyleBackColor = false;
+            this.btnExpense.Click += new System.EventHandler(this.btnCatSearch_Click);
             // 
             // btnDelete
             // 
@@ -145,12 +146,23 @@
             this.label1.Text = "Apoinment Schedular";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // btnIncome
+            // 
+            this.btnIncome.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btnIncome.Location = new System.Drawing.Point(524, 184);
+            this.btnIncome.Name = "btnIncome";
+            this.btnIncome.Size = new System.Drawing.Size(146, 50);
+            this.btnIncome.TabIndex = 24;
+            this.btnIncome.Text = "Create Income";
+            this.btnIncome.UseVisualStyleBackColor = false;
+            // 
             // AppointmentPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnCatSearch);
+            this.Controls.Add(this.btnIncome);
+            this.Controls.Add(this.btnExpense);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtPurpose);
@@ -169,7 +181,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnCatSearch;
+        private System.Windows.Forms.Button btnExpense;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtPurpose;
@@ -179,5 +191,6 @@
         private System.Windows.Forms.Label lblLocation;
         private System.Windows.Forms.Label lbInviteeName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnIncome;
     }
 }

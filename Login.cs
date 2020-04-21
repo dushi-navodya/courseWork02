@@ -21,5 +21,14 @@ namespace courseWork02
         {
 
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var homePage = new HomePage();
+            homePage.Activate();
+            homePage.ShowDialog();
+           
+        }
     }
 }

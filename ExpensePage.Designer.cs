@@ -1,6 +1,6 @@
 ﻿namespace courseWork02
 {
-    partial class ExpensePagecs
+    partial class ExpensePage
     {
         /// <summary>
         /// Required designer variable.

@@ -178,8 +178,9 @@
             this.btnSignUp.TabIndex = 13;
             this.btnSignUp.Text = "Sign Up";
             this.btnSignUp.UseVisualStyleBackColor = true;
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
-            // Form1
+            // RegisterUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -198,7 +199,7 @@
             this.Controls.Add(this.lblLname);
             this.Controls.Add(this.lblFname);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "RegisterUser";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -16,5 +16,20 @@ namespace courseWork02
         {
             InitializeComponent();
         }
+
+        private void btnIncome_Click(object sender, EventArgs e)
+        {
+
+            var incomePage = new IncomePage();
+            incomePage.Activate();
+            incomePage.ShowDialog();
+        }
+
+        private void btnExpense_Click(object sender, EventArgs e)
+        {
+            var expensePage = new ExpensePage();
+            expensePage.Activate();
+            expensePage.ShowDialog();
+        }
     }
 }

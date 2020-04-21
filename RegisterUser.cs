@@ -21,5 +21,10 @@ namespace courseWork02
         {
 
         }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

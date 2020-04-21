@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace courseWork02
 {
-    public partial class ExpensePagecs : Form
+    public partial class ExpensePage : Form
     {
-        public ExpensePagecs()
+        public ExpensePage()
         {
             InitializeComponent();
         }
