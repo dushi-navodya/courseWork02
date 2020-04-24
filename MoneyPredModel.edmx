@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MoneyPredModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MoneyPredModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Appoinment">
           <Key>
             <PropertyRef Name="AppoinmentId" />
@@ -33,6 +33,7 @@
           <Property Name="IsEndMonth" Type="tinyint" />
           <Property Name="IsSpecDate" Type="tinyint" />
           <Property Name="SpecDate" Type="datetime" />
+          <Property Name="IsActive" Type="tinyint" />
         </EntityType>
         <EntityType Name="ExpenseCategory">
           <Key>
@@ -43,6 +44,7 @@
           <Property Name="CategoryType" Type="varchar" MaxLength="255" />
           <Property Name="CategoryOwner" Type="varchar" MaxLength="255" />
           <Property Name="Icon" Type="varchar" MaxLength="255" />
+          <Property Name="ISActive" Type="tinyint" />
         </EntityType>
         <EntityType Name="Income">
           <Key>
@@ -60,6 +62,7 @@
           <Property Name="IsEndMonth" Type="tinyint" />
           <Property Name="IsSpecDate" Type="tinyint" />
           <Property Name="SpecDate" Type="datetime" />
+          <Property Name="ISActive" Type="tinyint" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -70,6 +73,7 @@
           <Property Name="LastName" Type="varchar" MaxLength="255" />
           <Property Name="EMail" Type="varchar" MaxLength="255" />
           <Property Name="Proffesion" Type="varchar" MaxLength="255" />
+          <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <Association Name="FK__Appoinmen__Expen__4E88ABD4">
           <End Role="Expense" Type="Self.Expense" Multiplicity="0..1" />
@@ -158,8 +162,7 @@
             <End Role="Income" EntitySet="Income" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MoneyPredModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -196,6 +199,7 @@
           <NavigationProperty Name="Appoinments" Relationship="Self.FK__Appoinmen__Expen__4E88ABD4" FromRole="Expense" ToRole="Appoinment" />
           <NavigationProperty Name="ExpenseCategory" Relationship="Self.FK__Expense__Categor__38996AB5" FromRole="Expense" ToRole="ExpenseCategory" />
           <NavigationProperty Name="User" Relationship="Self.FK__Expense__UserID__37A5467C" FromRole="Expense" ToRole="Users" />
+          <Property Name="IsActive" Type="Byte" />
         </EntityType>
         <EntityType Name="ExpenseCategory">
           <Key>
@@ -207,6 +211,7 @@
           <Property Name="CategoryOwner" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Icon" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Expenses" Relationship="Self.FK__Expense__Categor__38996AB5" FromRole="ExpenseCategory" ToRole="Expense" />
+          <Property Name="ISActive" Type="Byte" />
         </EntityType>
         <EntityType Name="Income">
           <Key>
@@ -226,6 +231,7 @@
           <Property Name="SpecDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Appoinments" Relationship="Self.FK__Appoinmen__Incom__4D94879B" FromRole="Income" ToRole="Appoinment" />
           <NavigationProperty Name="User" Relationship="Self.FK__Income__UserID__33D4B598" FromRole="Income" ToRole="Users" />
+          <Property Name="ISActive" Type="Byte" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -238,6 +244,7 @@
           <Property Name="Proffesion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Expenses" Relationship="Self.FK__Expense__UserID__37A5467C" FromRole="Users" ToRole="Expense" />
           <NavigationProperty Name="Incomes" Relationship="Self.FK__Income__UserID__33D4B598" FromRole="Users" ToRole="Income" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK__Appoinmen__Expen__4E88ABD4">
           <End Role="Expense" Type="Self.Expense" Multiplicity="0..1" />
@@ -347,6 +354,7 @@
           <EntitySetMapping Name="Expenses">
             <EntityTypeMapping TypeName="MoneyPredModel.Expense">
               <MappingFragment StoreEntitySet="Expense">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="ExpensseId" ColumnName="ExpensseId" />
@@ -366,6 +374,7 @@
           <EntitySetMapping Name="ExpenseCategories">
             <EntityTypeMapping TypeName="MoneyPredModel.ExpenseCategory">
               <MappingFragment StoreEntitySet="ExpenseCategory">
+                <ScalarProperty Name="ISActive" ColumnName="ISActive" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
                 <ScalarProperty Name="CategoryType" ColumnName="CategoryType" />
@@ -377,6 +386,7 @@
           <EntitySetMapping Name="Incomes">
             <EntityTypeMapping TypeName="MoneyPredModel.Income">
               <MappingFragment StoreEntitySet="Income">
+                <ScalarProperty Name="ISActive" ColumnName="ISActive" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="IncomeId" ColumnName="IncomeId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -395,6 +405,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="MoneyPredModel.User">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />

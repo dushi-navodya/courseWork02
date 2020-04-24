@@ -61,6 +61,24 @@ namespace courseWork02
             // close writer
             textWriter.Close();
             Console.ReadLine();
-        }
+
+            using (MoneyPred db = new MoneyPred())
+            {
+                Income income = new Income
+                {
+                    Description = txtDescription.Text.ToString(),
+                    PayerName = txtPayerName.Text.ToString(),
+                    Amount = decimal.Parse(txtAmount.Text),
+                    //Date = DateTime.Parse(dtpDate.Text),
+                    //IsRecurringEvent = chkReurEvent.Checked,
+                    //ISActive = true,
+                    //IsEndMonth = rbIncomeEnd.Checked,
+                    //IsBeginingMonth = rbIncomeBegining.Checked,
+                    //IsSpecDate = rbIncomeSpecific.Checked,
+                    //SpecDate = DateTime.Parse(dtpSpecDate.Text),
+                    UserID = 1
+                };
+            }
+         }
     }
 }

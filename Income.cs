@@ -27,11 +27,12 @@ namespace courseWork02
         public Nullable<decimal> Amount { get; set; }
         public string Proffesion { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
-        public Nullable<byte> IsRecurringEvent { get; set; }
-        public Nullable<byte> IsBeginingMonth { get; set; }
-        public Nullable<byte> IsEndMonth { get; set; }
-        public Nullable<byte> IsSpecDate { get; set; }
+        public Nullable<bool> IsRecurringEvent { get; set; }
+        public Nullable<bool> IsBeginingMonth { get; set; }
+        public Nullable<bool> IsEndMonth { get; set; }
+        public Nullable<bool> IsSpecDate { get; set; }
         public Nullable<System.DateTime> SpecDate { get; set; }
+        public Nullable<bool> ISActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Appoinment> Appoinments { get; set; }

@@ -30,5 +30,13 @@ namespace courseWork02
             homePage.ShowDialog();
            
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var RegisterUser = new RegisterUser();
+            RegisterUser.Activate();
+            RegisterUser.ShowDialog();
+        }
     }
 }

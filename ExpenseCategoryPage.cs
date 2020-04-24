@@ -29,7 +29,18 @@ namespace courseWork02
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            using (MoneyPred db = new MoneyPred())
+            {
+                ExpenseCategory category = new ExpenseCategory
+                {
+                    CategoryName = txtCatName.Text.ToString(),
+                    CategoryOwner = txtCatOwner.Text.ToString(),
+                    CategoryType = txtCatType.Text.ToString(),
+                    Icon = txtCatIcon.Text.ToString(),
+                };
+                db.ExpenseCategories.Add(category);
+                db.SaveChanges();
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

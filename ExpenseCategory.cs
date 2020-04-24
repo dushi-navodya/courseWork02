@@ -25,6 +25,7 @@ namespace courseWork02
         public string CategoryType { get; set; }
         public string CategoryOwner { get; set; }
         public string Icon { get; set; }
+        public Nullable<byte> ISActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Expense> Expenses { get; set; }

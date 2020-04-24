@@ -33,6 +33,7 @@ namespace courseWork02
         public Nullable<byte> IsEndMonth { get; set; }
         public Nullable<byte> IsSpecDate { get; set; }
         public Nullable<System.DateTime> SpecDate { get; set; }
+        public Nullable<byte> IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Appoinment> Appoinments { get; set; }

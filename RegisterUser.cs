@@ -24,7 +24,21 @@ namespace courseWork02
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
+            using(MoneyPred db = new MoneyPred())
+            {
+                User user = new User
+                {
+                    FirstName = txtFname.Text.ToString(),
+                    LastName = txtLname.Text.ToString(),
+                    EMail = txtEmail.Text.ToString(),
+                    Proffesion = txtProf.Text.ToString(),
+                    Password = txtPassword.Text.ToString(),
+                    ISActive = true,
 
+                };
+                db.Users.Add(user);
+                db.SaveChanges();
+            }
         }
     }
 }
