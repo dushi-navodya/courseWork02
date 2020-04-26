@@ -27,8 +27,9 @@ namespace courseWork02
         public string EMail { get; set; }
         public string Proffesion { get; set; }
         public string Password { get; set; }
-        public Nullable<bool> ISActive { get; set; }
-
+        public Nullable<byte> isActive { get; set; }
+        public string UserName { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Expense> Expenses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

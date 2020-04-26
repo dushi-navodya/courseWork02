@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using static courseWork02.Login;
 
 namespace courseWork02
 {
@@ -68,16 +69,18 @@ namespace courseWork02
                 {
                     Description = txtDescription.Text.ToString(),
                     PayerName = txtPayerName.Text.ToString(),
-                    Amount = decimal.Parse(txtAmount.Text),
-                    //Date = DateTime.Parse(dtpDate.Text),
-                    //IsRecurringEvent = chkReurEvent.Checked,
-                    //ISActive = true,
-                    //IsEndMonth = rbIncomeEnd.Checked,
-                    //IsBeginingMonth = rbIncomeBegining.Checked,
-                    //IsSpecDate = rbIncomeSpecific.Checked,
-                    //SpecDate = DateTime.Parse(dtpSpecDate.Text),
-                    UserID = 1
+                    Amount = Convert.ToDecimal(txtAmount.Text),
+                    Date = DateTime.Parse(dtpDate.Text),
+                    IsRecurringIncome = Convert.ToByte(chkReurEvent.Checked),
+                    ISActive = 1,
+                    IsEndMonth = Convert.ToByte(rbIncomeEnd.Checked),
+                    IsBeginingMonth = Convert.ToByte(rbIncomeBegining.Checked),
+                    IsSpecDate = Convert.ToByte(rbIncomeSpecific.Checked),
+                    SpecDate = DateTime.Parse(dtpSpecDate.Text),
+                    UserID = UserDetails.UserId
                 };
+                db.Incomes.Add(income);
+                db.SaveChanges();
             }
          }
     }

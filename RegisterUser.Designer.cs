@@ -42,6 +42,8 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtCPassword = new System.Windows.Forms.TextBox();
             this.btnSignUp = new System.Windows.Forms.Button();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -109,7 +111,7 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.Color.Teal;
-            this.lblPassword.Location = new System.Drawing.Point(184, 316);
+            this.lblPassword.Location = new System.Drawing.Point(184, 347);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(98, 25);
             this.lblPassword.TabIndex = 5;
@@ -121,7 +123,7 @@
             this.lblCPassword.AutoSize = true;
             this.lblCPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCPassword.ForeColor = System.Drawing.Color.Teal;
-            this.lblCPassword.Location = new System.Drawing.Point(184, 366);
+            this.lblCPassword.Location = new System.Drawing.Point(184, 397);
             this.lblCPassword.Name = "lblCPassword";
             this.lblCPassword.Size = new System.Drawing.Size(171, 25);
             this.lblCPassword.TabIndex = 6;
@@ -148,6 +150,8 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(177, 22);
             this.txtEmail.TabIndex = 9;
+            this.txtEmail.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtEmail_KeyUp);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtProf
             // 
@@ -158,21 +162,22 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(415, 316);
+            this.txtPassword.Location = new System.Drawing.Point(415, 347);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(177, 22);
             this.txtPassword.TabIndex = 11;
             // 
             // txtCPassword
             // 
-            this.txtCPassword.Location = new System.Drawing.Point(415, 366);
+            this.txtCPassword.Location = new System.Drawing.Point(415, 397);
             this.txtCPassword.Name = "txtCPassword";
             this.txtCPassword.Size = new System.Drawing.Size(177, 22);
             this.txtCPassword.TabIndex = 12;
+            this.txtCPassword.Leave += new System.EventHandler(this.txtCPassword_Leave);
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Location = new System.Drawing.Point(489, 426);
+            this.btnSignUp.Location = new System.Drawing.Point(489, 457);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(102, 35);
             this.btnSignUp.TabIndex = 13;
@@ -180,11 +185,32 @@
             this.btnSignUp.UseVisualStyleBackColor = true;
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
+            // txtUserName
+            // 
+            this.txtUserName.Location = new System.Drawing.Point(415, 303);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(177, 22);
+            this.txtUserName.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Teal;
+            this.label2.Location = new System.Drawing.Point(184, 303);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(110, 25);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "User Name";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // RegisterUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(931, 489);
+            this.ClientSize = new System.Drawing.Size(955, 576);
+            this.Controls.Add(this.txtUserName);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.txtCPassword);
             this.Controls.Add(this.txtPassword);
@@ -222,6 +248,8 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtCPassword;
         private System.Windows.Forms.Button btnSignUp;
+        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.Label label2;
     }
 }
 
