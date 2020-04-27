@@ -49,16 +49,18 @@
             this.lblPayerName = new System.Windows.Forms.Label();
             this.lblECategory = new System.Windows.Forms.Label();
             this.cmdExpCategory = new System.Windows.Forms.ComboBox();
+            this.expenseCategoryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.testDataSet1 = new courseWork02.testDataSet1();
+            this.expenseCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.testDataSet = new courseWork02.testDataSet();
             this.btnCategory = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.testDataSet = new courseWork02.testDataSet();
-            this.expenseCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.expenseCategoryTableAdapter = new courseWork02.testDataSetTableAdapters.ExpenseCategoryTableAdapter();
-            this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
-            this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)(this.testDataSet)).BeginInit();
+            this.expenseCategoryTableAdapter1 = new courseWork02.testDataSet1TableAdapters.ExpenseCategoryTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.expenseCategoryBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expenseCategoryBindingSource)).BeginInit();
-            this.fillByToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.testDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // lblIncome
@@ -82,6 +84,7 @@
             this.btnEDelete.TabIndex = 54;
             this.btnEDelete.Text = "Delete";
             this.btnEDelete.UseVisualStyleBackColor = false;
+            this.btnEDelete.Click += new System.EventHandler(this.btnEDelete_Click);
             // 
             // btnESave
             // 
@@ -251,15 +254,35 @@
             // 
             // cmdExpCategory
             // 
-            this.cmdExpCategory.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.expenseCategoryBindingSource, "CategoryName", true));
-            this.cmdExpCategory.DataSource = this.expenseCategoryBindingSource;
+            this.cmdExpCategory.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.expenseCategoryBindingSource1, "CategoryName", true));
+            this.cmdExpCategory.DataSource = this.expenseCategoryBindingSource1;
             this.cmdExpCategory.DisplayMember = "CategoryName";
             this.cmdExpCategory.FormattingEnabled = true;
             this.cmdExpCategory.Location = new System.Drawing.Point(390, 333);
             this.cmdExpCategory.Name = "cmdExpCategory";
             this.cmdExpCategory.Size = new System.Drawing.Size(121, 24);
             this.cmdExpCategory.TabIndex = 56;
-            this.cmdExpCategory.ValueMember = "CategoryName";
+            this.cmdExpCategory.ValueMember = "CategoryId";
+            // 
+            // expenseCategoryBindingSource1
+            // 
+            this.expenseCategoryBindingSource1.DataMember = "ExpenseCategory";
+            this.expenseCategoryBindingSource1.DataSource = this.testDataSet1;
+            // 
+            // testDataSet1
+            // 
+            this.testDataSet1.DataSetName = "testDataSet1";
+            this.testDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // expenseCategoryBindingSource
+            // 
+            this.expenseCategoryBindingSource.DataMember = "ExpenseCategory";
+            this.expenseCategoryBindingSource.DataSource = this.testDataSet;
+            // 
+            // testDataSet
+            // 
+            this.testDataSet.DataSetName = "testDataSet";
+            this.testDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnCategory
             // 
@@ -283,45 +306,19 @@
             this.label3.TabIndex = 58;
             this.label3.Text = "Expenses";
             // 
-            // testDataSet
-            // 
-            this.testDataSet.DataSetName = "testDataSet";
-            this.testDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // expenseCategoryBindingSource
-            // 
-            this.expenseCategoryBindingSource.DataMember = "ExpenseCategory";
-            this.expenseCategoryBindingSource.DataSource = this.testDataSet;
-            // 
             // expenseCategoryTableAdapter
             // 
             this.expenseCategoryTableAdapter.ClearBeforeFill = true;
             // 
-            // fillByToolStrip
+            // expenseCategoryTableAdapter1
             // 
-            this.fillByToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fillByToolStripButton});
-            this.fillByToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.fillByToolStrip.Name = "fillByToolStrip";
-            this.fillByToolStrip.Size = new System.Drawing.Size(112, 25);
-            this.fillByToolStrip.TabIndex = 59;
-            this.fillByToolStrip.Text = "fillByToolStrip";
-            // 
-            // fillByToolStripButton
-            // 
-            this.fillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillByToolStripButton.Name = "fillByToolStripButton";
-            this.fillByToolStripButton.Size = new System.Drawing.Size(48, 22);
-            this.fillByToolStripButton.Text = "FillBy";
-            this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click);
+            this.expenseCategoryTableAdapter1.ClearBeforeFill = true;
             // 
             // ExpensePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 755);
-            this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCategory);
             this.Controls.Add(this.cmdExpCategory);
@@ -347,10 +344,10 @@
             this.Name = "ExpensePage";
             this.Text = "ExpensePagecs";
             this.Load += new System.EventHandler(this.ExpensePage_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.testDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expenseCategoryBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expenseCategoryBindingSource)).EndInit();
-            this.fillByToolStrip.ResumeLayout(false);
-            this.fillByToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.testDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,7 +379,8 @@
         private testDataSet testDataSet;
         private System.Windows.Forms.BindingSource expenseCategoryBindingSource;
         private testDataSetTableAdapters.ExpenseCategoryTableAdapter expenseCategoryTableAdapter;
-        private System.Windows.Forms.ToolStrip fillByToolStrip;
-        private System.Windows.Forms.ToolStripButton fillByToolStripButton;
+        private testDataSet1 testDataSet1;
+        private System.Windows.Forms.BindingSource expenseCategoryBindingSource1;
+        private testDataSet1TableAdapters.ExpenseCategoryTableAdapter expenseCategoryTableAdapter1;
     }
 }

@@ -95,7 +95,7 @@
             this.btnLogin.Location = new System.Drawing.Point(262, 298);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(249, 41);
-            this.btnLogin.TabIndex = 6;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -107,7 +107,7 @@
             this.btnSignUp.Location = new System.Drawing.Point(259, 393);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(252, 39);
-            this.btnSignUp.TabIndex = 7;
+            this.btnSignUp.TabIndex = 4;
             this.btnSignUp.Text = "Sign Up";
             this.btnSignUp.UseVisualStyleBackColor = false;
             this.btnSignUp.Click += new System.EventHandler(this.button1_Click);
@@ -118,7 +118,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(243, 22);
-            this.txtPassword.TabIndex = 8;
+            this.txtPassword.TabIndex = 2;
             // 
             // Login
             // 

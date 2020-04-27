@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static courseWork02.Login;
+using static courseWork02.SearchPage;
 
 namespace courseWork02
 {
@@ -60,17 +61,35 @@ namespace courseWork02
 
         private void ExpensePage_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'testDataSet.ExpenseCategory' table. You can move, or remove it, as needed.
-            this.expenseCategoryTableAdapter.Fill(this.testDataSet.ExpenseCategory);
-            using (MoneyPred db = new MoneyPred())
+            // TODO: This line of code loads data into the 'testDataSet1.ExpenseCategory' table. You can move, or remove it, as needed.
+            this.expenseCategoryTableAdapter1.Fill(this.testDataSet1.ExpenseCategory);
+            if (ExpenseDetails.ExpenseId != 0)
             {
-                var categorieList = from categories in db.ExpenseCategories
-                                 where categories.ISActive == 1
-                                 select categories.CategoryName;
+                using(MoneyPred db = new MoneyPred())
+                {
+                    var expenseDetails = from expense in db.Expenses
+                                         where expense.ExpensseId == ExpenseDetails.ExpenseId && expense.IsActive == 1
+                                         select expense;
 
-                DataTable dt = new DataTable();
+                    foreach (var item in expenseDetails)
+                    {
+                        this.txtEAmount.Text = item.Amount.ToString();
+                        this.txtEAmount.Text = item.Amount.ToString();
+                        this.txtEDescription.Text = item.Description.ToString();
+                        this.txtEPayerName.Text = item.PayerName.ToString();
+                        this.dtpEDate.Text = item.Date.ToString();
+                        this.dtpESpecDate.Text = item.SpecDate.ToString();
+                        this.cmdExpCategory.SelectedIndex = cmdExpCategory.Items.IndexOf(item.CategoryId);
+                        this.rbEEnd.Checked = item.IsEndMonth == 1 ? true : false;
+                        this.rbESpecific.Checked = item.IsSpecDate == 1 ? true : false;
+                        this.rbIEBegining.Checked = item.IsBeginingMonth == 1 ? true : false;
+                        this.chkEReurEvent.Checked = item.IsRecurringEvent == 1 ? true : false;
+
+                    }
+                }
                 
             }
+            
         }
 
         private void fillByToolStripButton_Click(object sender, EventArgs e)
@@ -84,6 +103,32 @@ namespace courseWork02
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void fillByToolStripButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.expenseCategoryTableAdapter1.FillBy(this.testDataSet1.ExpenseCategory);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void btnEDelete_Click(object sender, EventArgs e)
+        {
+            using(MoneyPred db = new MoneyPred())
+            {
+                var result = db.Expenses.SingleOrDefault(b => b.ExpensseId == ExpenseDetails.ExpenseId);
+                if (result != null)
+                {
+                    result.IsActive =0;
+                    db.SaveChanges();
+                }
+            }
         }
     }
 }

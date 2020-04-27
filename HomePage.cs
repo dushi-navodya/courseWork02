@@ -31,5 +31,12 @@ namespace courseWork02
             expensePage.Activate();
             expensePage.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FinancePredicPage financePredicPage = new FinancePredicPage();
+            financePredicPage.Activate();
+            financePredicPage.Show();
+        }
     }
 }
