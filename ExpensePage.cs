@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static courseWork02.AppointmentPage;
 using static courseWork02.Login;
 using static courseWork02.SearchPage;
 
@@ -36,10 +37,21 @@ namespace courseWork02
                     IsSpecDate = Convert.ToByte(rbESpecific.Checked),
                     SpecDate = DateTime.Parse(dtpESpecDate.Text),
                     UserID = UserDetails.UserId,
-                    CategoryId = 1
+                    CategoryId = Convert.ToInt16(cmdExpCategory.SelectedValue)
                 };
                 db.Expenses.Add(expense);
                 db.SaveChanges();
+                if (AppoinmentDetails.AppoinmentId != 0)
+                {
+                    var expenseId = from exp in db.Expenses
+                                    select exp;
+                    var result = db.Appoinments.SingleOrDefault(b => b.AppoinmentId == AppoinmentDetails.AppoinmentId);
+                    if (result != null)
+                    {
+                        result.ExpenseId = Convert.ToInt32(expenseId.First());
+                        db.SaveChanges();
+                    }
+                }
             }
         }
 

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnExpense = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtPurpose = new System.Windows.Forms.TextBox();
             this.txtLocation = new System.Windows.Forms.TextBox();
@@ -50,23 +49,13 @@
             this.btnExpense.TabIndex = 23;
             this.btnExpense.Text = "Create Expense";
             this.btnExpense.UseVisualStyleBackColor = false;
+            this.btnExpense.Visible = false;
             this.btnExpense.Click += new System.EventHandler(this.btnCatSearch_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.btnDelete.Location = new System.Drawing.Point(382, 304);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(83, 44);
-            this.btnDelete.TabIndex = 22;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.btnSave.Location = new System.Drawing.Point(270, 304);
+            this.btnSave.Location = new System.Drawing.Point(383, 302);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(83, 44);
             this.btnSave.TabIndex = 21;
@@ -155,6 +144,8 @@
             this.btnIncome.TabIndex = 24;
             this.btnIncome.Text = "Create Income";
             this.btnIncome.UseVisualStyleBackColor = false;
+            this.btnIncome.Visible = false;
+            this.btnIncome.Click += new System.EventHandler(this.btnIncome_Click);
             // 
             // AppointmentPage
             // 
@@ -163,7 +154,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnIncome);
             this.Controls.Add(this.btnExpense);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtPurpose);
             this.Controls.Add(this.txtLocation);
@@ -182,7 +172,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnExpense;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtPurpose;
         private System.Windows.Forms.TextBox txtLocation;

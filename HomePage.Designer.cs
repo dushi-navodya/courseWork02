@@ -28,15 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.btnIncome = new System.Windows.Forms.Button();
             this.btnExpense = new System.Windows.Forms.Button();
             this.btnPredic = new System.Windows.Forms.Button();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.pieChart = new MindFusion.Charting.WinForms.PieChart();
+            this.btnAcc = new System.Windows.Forms.Button();
+            this.btnAppoinment = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -55,7 +53,7 @@
             this.btnIncome.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btnIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIncome.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnIncome.Location = new System.Drawing.Point(171, 139);
+            this.btnIncome.Location = new System.Drawing.Point(110, 187);
             this.btnIncome.Name = "btnIncome";
             this.btnIncome.Size = new System.Drawing.Size(116, 50);
             this.btnIncome.TabIndex = 2;
@@ -68,7 +66,7 @@
             this.btnExpense.BackColor = System.Drawing.Color.Aqua;
             this.btnExpense.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExpense.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnExpense.Location = new System.Drawing.Point(443, 139);
+            this.btnExpense.Location = new System.Drawing.Point(110, 257);
             this.btnExpense.Name = "btnExpense";
             this.btnExpense.Size = new System.Drawing.Size(116, 50);
             this.btnExpense.TabIndex = 3;
@@ -80,44 +78,92 @@
             // 
             this.btnPredic.BackColor = System.Drawing.Color.Teal;
             this.btnPredic.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPredic.Location = new System.Drawing.Point(242, 237);
+            this.btnPredic.Location = new System.Drawing.Point(110, 329);
             this.btnPredic.Name = "btnPredic";
-            this.btnPredic.Size = new System.Drawing.Size(250, 41);
+            this.btnPredic.Size = new System.Drawing.Size(116, 75);
             this.btnPredic.TabIndex = 5;
             this.btnPredic.Text = "Predict Financial Status";
             this.btnPredic.UseVisualStyleBackColor = false;
             this.btnPredic.Click += new System.EventHandler(this.button2_Click);
             // 
-            // chart1
+            // pieChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(218, 284);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(300, 300);
-            this.chart1.TabIndex = 6;
-            this.chart1.Text = "chart1";
+            this.pieChart.ChartPadding = 20;
+            this.pieChart.DetachOffset = 0F;
+            this.pieChart.LegendTitle = "Pie Chart for Expenses";
+            this.pieChart.Location = new System.Drawing.Point(98, 90);
+            this.pieChart.Margin = new System.Windows.Forms.Padding(4);
+            this.pieChart.Name = "pieChart";
+            this.pieChart.Padding = new System.Windows.Forms.Padding(67, 62, 67, 62);
+            this.pieChart.ShowLegend = true;
+            this.pieChart.Size = new System.Drawing.Size(879, 525);
+            this.pieChart.StartAngle = 0F;
+            this.pieChart.SubtitleFontName = null;
+            this.pieChart.SubtitleFontSize = null;
+            this.pieChart.SubtitleFontStyle = null;
+            this.pieChart.TabIndex = 7;
+            this.pieChart.Text = "pieChart1";
+            this.pieChart.Theme.AxisLabelsBrush = new MindFusion.Drawing.SolidBrush("#FF000000");
+            this.pieChart.Theme.AxisTitleBrush = new MindFusion.Drawing.SolidBrush("#FF000000");
+            this.pieChart.Theme.DataLabelsBrush = new MindFusion.Drawing.SolidBrush("#FF000000");
+            this.pieChart.Theme.GaugeBackground = new MindFusion.Drawing.SolidBrush("#FFB0C4DE");
+            this.pieChart.Theme.GaugePointerBackground = new MindFusion.Drawing.SolidBrush("#FFFFA500");
+            this.pieChart.Theme.GaugePointerStroke = new MindFusion.Drawing.SolidBrush("#FFDC143C");
+            this.pieChart.Theme.GaugeScaleBackground = new MindFusion.Drawing.SolidBrush("#FFFFFFFF");
+            this.pieChart.Theme.GaugeStroke = new MindFusion.Drawing.SolidBrush("#FF483D8B");
+            this.pieChart.Theme.GaugeTickBackground = new MindFusion.Drawing.SolidBrush("#FF00BFFF");
+            this.pieChart.Theme.LegendBorderStrokeThickness = 0D;
+            this.pieChart.Theme.LegendTitleBrush = new MindFusion.Drawing.SolidBrush("#FF000000");
+            this.pieChart.Theme.PlotBorderStrokeThickness = 0D;
+            this.pieChart.Theme.SubtitleBrush = new MindFusion.Drawing.SolidBrush("#FF000000");
+            this.pieChart.Theme.TitleBrush = new MindFusion.Drawing.SolidBrush("#FF000000");
+            this.pieChart.Theme.UniformSeriesFill = new MindFusion.Drawing.SolidBrush("#FF90EE90");
+            this.pieChart.Theme.UniformSeriesStroke = new MindFusion.Drawing.SolidBrush("#FF000000");
+            this.pieChart.TitleFontName = null;
+            this.pieChart.TitleFontSize = null;
+            this.pieChart.TitleFontStyle = null;
+            // 
+            // btnAcc
+            // 
+            this.btnAcc.BackColor = System.Drawing.Color.Aquamarine;
+            this.btnAcc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcc.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAcc.Location = new System.Drawing.Point(110, 519);
+            this.btnAcc.Name = "btnAcc";
+            this.btnAcc.Size = new System.Drawing.Size(116, 50);
+            this.btnAcc.TabIndex = 8;
+            this.btnAcc.Text = "Account";
+            this.btnAcc.UseVisualStyleBackColor = false;
+            this.btnAcc.Click += new System.EventHandler(this.btnAcc_Click);
+            // 
+            // btnAppoinment
+            // 
+            this.btnAppoinment.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btnAppoinment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAppoinment.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAppoinment.Location = new System.Drawing.Point(110, 438);
+            this.btnAppoinment.Name = "btnAppoinment";
+            this.btnAppoinment.Size = new System.Drawing.Size(116, 50);
+            this.btnAppoinment.TabIndex = 9;
+            this.btnAppoinment.Text = "Appointment";
+            this.btnAppoinment.UseVisualStyleBackColor = false;
+            this.btnAppoinment.Click += new System.EventHandler(this.btnAppoinment_Click);
             // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 646);
-            this.Controls.Add(this.chart1);
+            this.ClientSize = new System.Drawing.Size(1093, 675);
+            this.Controls.Add(this.btnAppoinment);
+            this.Controls.Add(this.btnAcc);
             this.Controls.Add(this.btnPredic);
             this.Controls.Add(this.btnExpense);
             this.Controls.Add(this.btnIncome);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pieChart);
             this.Name = "HomePage";
             this.Text = "HomePage";
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.Load += new System.EventHandler(this.HomePage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,6 +175,8 @@
         private System.Windows.Forms.Button btnIncome;
         private System.Windows.Forms.Button btnExpense;
         private System.Windows.Forms.Button btnPredic;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private MindFusion.Charting.WinForms.PieChart pieChart;
+        private System.Windows.Forms.Button btnAcc;
+        private System.Windows.Forms.Button btnAppoinment;
     }
 }

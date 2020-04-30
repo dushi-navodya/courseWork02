@@ -12,6 +12,8 @@ namespace courseWork02
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class MoneyPred : DbContext
     {
@@ -30,5 +32,15 @@ namespace courseWork02
         public virtual DbSet<ExpenseCategory> ExpenseCategories { get; set; }
         public virtual DbSet<Income> Incomes { get; set; }
         public virtual DbSet<User> Users { get; set; }
+    
+        public virtual ObjectResult<Get_All_Result> Get_All()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Get_All_Result>("Get_All");
+        }
+    
+        public virtual ObjectResult<Get_Allii_Result> Get_Allii()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Get_Allii_Result>("Get_Allii");
+        }
     }
 }

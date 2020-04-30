@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using static courseWork02.AppointmentPage;
 using static courseWork02.Login;
 using static courseWork02.SearchPage;
 
@@ -56,36 +57,6 @@ namespace courseWork02
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            String workingDir = Directory.GetCurrentDirectory();
-            // Create a new file in the working directory
-            XmlTextWriter textWriter = new XmlTextWriter("myXMLFile.xml", null);
-            // Opens the document
-            textWriter.WriteStartDocument();
-            // Write comments
-            textWriter.WriteComment(txtDescription.Text);
-            textWriter.WriteComment("myXmlFile.xml in root dir");
-            // Write first element
-            textWriter.WriteStartElement("Student");
-            // Write next element
-            textWriter.WriteStartElement("Name", "");
-            textWriter.WriteString("Some_Student");
-            textWriter.WriteEndElement();
-            // Write some more elements
-            textWriter.WriteStartElement("Course", "");
-            textWriter.WriteString("BSc Computer Science");
-            textWriter.WriteEndElement();
-            textWriter.WriteStartElement("Modules", "");
-            //nested element
-            textWriter.WriteStartElement("Module", "");
-            textWriter.WriteString("ECSE501 OOD");
-            textWriter.WriteEndElement();
-            textWriter.WriteEndElement();
-            textWriter.WriteEndElement();
-            // Ends the document.
-            textWriter.WriteEndDocument();
-            // close writer
-            textWriter.Close();
-            Console.ReadLine();
 
             using (MoneyPred db = new MoneyPred())
             {
@@ -105,6 +76,17 @@ namespace courseWork02
                 };
                 db.Incomes.Add(income);
                 db.SaveChanges();
+                if (AppoinmentDetails.AppoinmentId != 0)
+                {
+                    var incomeId = from inc in db.Incomes
+                                    select inc;
+                    var result = db.Appoinments.SingleOrDefault(b => b.AppoinmentId == AppoinmentDetails.AppoinmentId);
+                    if (result != null)
+                    {
+                        result.IncomeId = Convert.ToInt32(incomeId.First());
+                        db.SaveChanges();
+                    }
+                }
             }
          }
 
@@ -119,6 +101,13 @@ namespace courseWork02
                     db.SaveChanges();
                 }
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            SearchPage search = new SearchPage();
+            search.Activate();
+            search.Show();
         }
     }
 }

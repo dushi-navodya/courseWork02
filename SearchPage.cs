@@ -53,7 +53,7 @@ namespace courseWork02
                                          where dtpFromDate.Value < incomes.Date
                                          && dtpToDate.Value > incomes.Date
                                          select new
-                                         { Description = incomes.Description, Amount = incomes.Amount, Date = incomes.Date, Id = incomes.ExpensseId };
+                                         { Description = incomes.Description, Amount = incomes.Amount, Date = incomes.Date, Id = incomes.IncomeId };
 
                     incomeDataGrid.DataSource = incomeDetails.ToList();
                 }
