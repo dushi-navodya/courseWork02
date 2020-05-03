@@ -45,7 +45,7 @@ namespace courseWork02
                 db.SaveChanges();
 
                 var appoinmentId = from appoinment in db.Appoinments
-                                   select appoinment;
+                                   select appoinment.AppoinmentId;
 
                 AppoinmentDetails.AppoinmentId = Convert.ToInt32(appoinmentId.First());
 

@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="AppoinmentId" />
           </Key>
-          <Property Name="AppoinmentId" Type="int" Nullable="false" />
+          <Property Name="AppoinmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IncomeId" Type="int" />
           <Property Name="ExpenseId" Type="int" />
           <Property Name="InviteeName" Type="varchar" MaxLength="255" />

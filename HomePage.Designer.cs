@@ -28,25 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.btnIncome = new System.Windows.Forms.Button();
             this.btnExpense = new System.Windows.Forms.Button();
             this.btnPredic = new System.Windows.Forms.Button();
             this.pieChart = new MindFusion.Charting.WinForms.PieChart();
-            this.btnAcc = new System.Windows.Forms.Button();
             this.btnAppoinment = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label1.Location = new System.Drawing.Point(299, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Home Page";
             // 
             // btnIncome
             // 
@@ -91,12 +78,12 @@
             this.pieChart.ChartPadding = 20;
             this.pieChart.DetachOffset = 0F;
             this.pieChart.LegendTitle = "Pie Chart for Expenses";
-            this.pieChart.Location = new System.Drawing.Point(98, 90);
+            this.pieChart.Location = new System.Drawing.Point(98, 38);
             this.pieChart.Margin = new System.Windows.Forms.Padding(4);
             this.pieChart.Name = "pieChart";
             this.pieChart.Padding = new System.Windows.Forms.Padding(67, 62, 67, 62);
             this.pieChart.ShowLegend = true;
-            this.pieChart.Size = new System.Drawing.Size(879, 525);
+            this.pieChart.Size = new System.Drawing.Size(973, 577);
             this.pieChart.StartAngle = 0F;
             this.pieChart.SubtitleFontName = null;
             this.pieChart.SubtitleFontSize = null;
@@ -123,19 +110,6 @@
             this.pieChart.TitleFontSize = null;
             this.pieChart.TitleFontStyle = null;
             // 
-            // btnAcc
-            // 
-            this.btnAcc.BackColor = System.Drawing.Color.Aquamarine;
-            this.btnAcc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAcc.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAcc.Location = new System.Drawing.Point(110, 519);
-            this.btnAcc.Name = "btnAcc";
-            this.btnAcc.Size = new System.Drawing.Size(116, 50);
-            this.btnAcc.TabIndex = 8;
-            this.btnAcc.Text = "Account";
-            this.btnAcc.UseVisualStyleBackColor = false;
-            this.btnAcc.Click += new System.EventHandler(this.btnAcc_Click);
-            // 
             // btnAppoinment
             // 
             this.btnAppoinment.BackColor = System.Drawing.Color.MediumTurquoise;
@@ -155,28 +129,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1093, 675);
             this.Controls.Add(this.btnAppoinment);
-            this.Controls.Add(this.btnAcc);
             this.Controls.Add(this.btnPredic);
             this.Controls.Add(this.btnExpense);
             this.Controls.Add(this.btnIncome);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pieChart);
             this.Name = "HomePage";
             this.Text = "HomePage";
             this.Load += new System.EventHandler(this.HomePage_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnIncome;
         private System.Windows.Forms.Button btnExpense;
         private System.Windows.Forms.Button btnPredic;
         private MindFusion.Charting.WinForms.PieChart pieChart;
-        private System.Windows.Forms.Button btnAcc;
         private System.Windows.Forms.Button btnAppoinment;
     }
 }
